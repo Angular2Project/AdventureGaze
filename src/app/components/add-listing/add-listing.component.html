@@ -1,0 +1,71 @@
+<br>
+  <a [routerLink] = "['/listings']"> Back </a>
+
+<h2 class = "page-header"> Add Reviews </h2>
+<form (submit) = "onAddSubmit()">
+
+	<div class = "form-group">
+      <label>Title</label>  
+      <input class = "form-control" type = "text" [(ngModel)] = "title" name = "title">
+	</div>
+	
+    <div class = "form-group">
+      <label>City</label>  
+      <select class = "form-control" type = "text"[(ngModel)] = "city" name = "city">
+	     <option value = "Goa">Goa</option>
+		 <option value = "Mumbai">Mumbai</option>
+		 <option value = "Banglore">Banglore</option>
+		 <option value = "Chennai">Chennai</option>
+		 <option value = "Agra">Agra</option>
+		 <option value = "Kanyakumari">Kanyakumari</option>
+		 <option value = "Hyderabad">Hyderabad</option>
+		 <option value = "Ooty">Ooty</option>
+		 <option value = "Shimla">Shimla</option>
+		 <option value = "Darjeeling">Darjeeling</option>
+		 <option value = "Pune">Pune</option>
+		 <option value = "Mysore">Mysore</option>
+		 <option value = "Kolkata">Kolkata</option>
+		 <option value = "Kochi">Kochi</option>
+		 <option value = "Nainital">Nainital</option>
+		 <option value = "Udaipur">Udaipur</option>
+		 <option value = "New Delhi">New Delhi</option>
+		 <option value = "Varanasi">Varanasi</option>
+		 <option value = "Shillong">Shillong</option>
+		 <option value = "MountAbu">MountAbu</option>
+		 <option value = "Rishikesh">Rishikesh</option>
+		 <option value = "Amritsar">Amritsar</option>
+		 <option value = "Lucknow">Lucknow</option>
+		 <option value = "Haridwar">Haridwar</option>
+	   </select>
+	</div>
+	
+	<!-- <div class = "form-group">
+      <label>Owner</label>  
+      <input class = "form-control" type = "text" [(ngModel)] = "owner" name = "owner">
+	</div> -->
+	
+	<!-- <div class = "form-group">
+      <label>BedRooms</label>  
+      <input class = "form-control" type = "text" [(ngModel)] = "bedrooms" name = "bedrooms">
+	</div>
+	
+	<div class = "form-group">
+      <label>Type</label>  
+      <select class = "form-control" type = "text"[(ngModel)] = "type" name = "type">
+	     <option value = "Estate">Estate</option>
+		 <option value = "Condo">Condo</option>
+	   </select>
+	</div> -->
+	
+	<div class = "form-group">
+        <input id = "image" type = "file" [(ngModel)] = "image" name = "image">
+	</div>
+	
+	<div class = "form-group">
+      <label>Review</label>  
+      <input class = "form-control" type = "text"  [(ngModel)] = "review" name = "review">
+	</div>
+	
+	<input type = "submit" value = "submit" class = "btn btn-success">
+	
+</form>

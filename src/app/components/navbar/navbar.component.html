@@ -1,0 +1,35 @@
+<nav class="navbar navbar-inverse navbar">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Adventure Gaze</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li><a [routerLink] = "['/']">Home</a></li>
+            <li *ngIf = "(af.auth | async)"><a [routerLink] = "['/listings']">Places</a></li>
+			<li *ngIf = "(af.auth | async)"><a [routerLink] = "['/add-listings']">Publish A Trip</a></li>
+            <li *ngIf = "(af.auth | async)"><a [routerLink] = "['/groups']">Form a Group</a></li>
+          
+		  </ul>
+		  <ul class="nav navbar-nav navbar-right">
+		    <div class="dropdown" *ngIf = "(af.auth | async)">
+				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" >
+				{{getName()}}
+				<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li *ngIf = "(af.auth | async)"><a [routerLink] = "['/profile'] ">Profile</a></li>
+					<li *ngIf = "(af.auth | async)"><a (click) = "logout()" >Logout</a></li>
+				</ul>
+			</div>
+			<li *ngIf = "!(af.auth | async)"><a (click) = "login()">Login</a></li>
+		 </ul>
+
+		  </div>
+      </div>
+    </nav>

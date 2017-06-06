@@ -1,0 +1,12 @@
+<a [routerLink] = "['/listings']"> Go Back </a>
+
+<br>
+
+
+<ul class = "list-group" *ngFor = "let listing of listings">
+	<li class = "list-group-item" *ngIf = "(id == listing.city)">
+    <a [routerLink] = "['/list/'+listing.$key]">
+
+	    {{listing.title}} </a>
+	</li>
+	</ul>

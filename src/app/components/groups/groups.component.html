@@ -1,0 +1,33 @@
+<a class = "btn btn-primary" (click) = "createGroup()">create a group</a>
+<form (submit) = "onAddSubmit()">
+
+	<div class = "form-group">
+      <label *ngIf = "show">GroupName</label>  
+      <input *ngIf = "show" class = "form-control" type = "text" [(ngModel)] = "name" name = "name">
+	</div>
+
+	<div class = "form-group">
+      <label *ngIf = "show">Description</label>  
+      <input  *ngIf = "show" class = "form-control" type = "text" [(ngModel)] = "description" name = "description">
+	</div>
+	<input *ngIf = "show" type = "submit" value = "submit" class = "btn btn-success">
+	
+</form>
+
+
+
+
+<ul class = "list-group" *ngFor = "let group of groups">
+	{{checkMember()}}
+    <ng-container *ngIf = "group.members.includes(mem); then thenBlock; else ElseBlock"></ng-container>
+		 
+		<ng-template #ElseBlock>
+			<li class = "list-group-item" >{{group.name}}
+				<a class="btn btn-warning btn-sm" style = "float:right" (click) = "JoinGroup(group)">
+					<span class="glyphicon glyphicon-plus"></span> join
+				</a>
+			</li>
+		</ng-template>
+</ul>
+
+

@@ -1,0 +1,7 @@
+<input type = "text" [(ngModel)]= "text" id="search" placeholder="Search to type">
+<ul class = "list-group">
+	<li class = "list-group-item" *ngFor = "let listing of listings | unique | FilterPipe: text">
+		<a [routerLink] = "['/listing/'+listing.city]">
+	    {{listing.city}} </a>
+	</li>
+	</ul>
