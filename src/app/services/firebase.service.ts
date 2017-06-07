@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 import * as firebase from 'firebase';
@@ -9,16 +8,28 @@ export class FirebaseService {
   listing : FirebaseObjectObservable<any[]>;
   groups : FirebaseListObservable<any[]>;
   folder : any;
+  uname:any;
   constructor(private af : AngularFire) {
      this.folder = 'listingimages';
   }
-  
+   getUsername():string{
+		var user = firebase.auth().currentUser;
+		var email;
+		if(user != null){
+			email = user.email;
+		}
+		return email;
+	}
    getListings() {
 	   this.listings = this.af.database.list('/places') as FirebaseListObservable<Listing[]>
 		return this.listings;
    }
    getGroups() {
 	   this.listings = this.af.database.list('/groups') as FirebaseListObservable<Group[]>
+	   return this.listings;
+    }
+   getMessage(id) {
+	   this.listings = this.af.database.list('/'+id) as FirebaseListObservable<Message[]>
 	   return this.listings;
     }
    
@@ -32,7 +43,10 @@ export class FirebaseService {
 		this.listings = this.af.database.list('/groups') as FirebaseListObservable<Group[]>
 		return this.listings.push(group);
 	}
-	
+	addMessage(message,id){
+		this.listings = this.af.database.list('/'+id) as FirebaseListObservable<Message[]>
+		return this.listings.push(message);
+	}
 	updateGroup(id,group) {
 		this.listings = this.af.database.list('/groups') as FirebaseListObservable<Group[]>
 		return this.listings.update(id,group);
@@ -57,15 +71,12 @@ export class FirebaseService {
    
  }
 interface Listing{
-	
 	$key?: string;
 	title?: string;
-	//type?: string;
 	image?: string;
 	city?: string;
-	//owner?: string;
-	//bedrooms?: string;
-     review?: string;
+	review?: string;
+	name?:string;
 }
 interface Group{
 	$key?:string;
@@ -73,4 +84,9 @@ interface Group{
 	admin?:string;
 	Description?:string;
 	members?:string;
+}
+interface Message{
+	$key?:string;
+	name?:string;
+	message?:string;
 }
