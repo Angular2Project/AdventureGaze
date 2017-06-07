@@ -8,6 +8,7 @@ import { FilterPipe } from '../../filter.pipe';
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.css']
 })
+
 export class MessageComponent implements OnInit {
 	message : any;
 	id : any;
