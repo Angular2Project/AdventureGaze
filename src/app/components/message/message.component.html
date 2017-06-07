@@ -1,0 +1,42 @@
+
+
+
+<div class="container-fluid">
+ <div class="row content">
+    <div class="col-sm-3 sidenav">
+<ul class = "list-group" *ngFor = "let group of groups" >
+	<li class = "list-group-item" *ngIf = "group.name == id">
+	{{printMembers(group.members)}} <font color = "Blue" ><b><h3>{{group.name}}</h3></b></font>
+	 <h4 *ngFor = "let member of splitted">
+	    {{member}}
+		</h4>
+	</li>
+</ul>
+</div>
+
+
+<div class="col-sm-9">
+
+
+
+<ul class = "list-group" *ngFor = "let m of messages">
+	<li class = "list-group-item">
+	    {{m.message}}<p float:right>--{{m.name}}</p>
+	</li>
+</ul>
+
+<form (submit) = "onAddSubmit()">
+
+	<div class = "form-group">
+      <label></label>  
+      <input class = "form-control" type = "text" [(ngModel)] = "message" name = "message">
+	  <button class="btn btn-primary btn-sm" type = "submit">
+           send<span class="glyphicon glyphicon-chevron-right"></span>
+      </button>
+	</div>
+	
+</form>
+
+</div>
+</div>
+</div>
