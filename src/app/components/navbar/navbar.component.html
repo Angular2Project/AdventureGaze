@@ -23,7 +23,8 @@
 				{{getName()}}
 				<span class="caret"></span></button>
 				<ul class="dropdown-menu">
-					<li *ngIf = "(af.auth | async)"><a [routerLink] = "['/profile'] ">Profile</a></li>
+					<li *ngIf = "(af.auth | async)"><a [routerLink] = "['/profile'] ">Groups</a></li>
+					<li *ngIf = "(af.auth | async)"><a [routerLink] = "['/myreviews'] ">Reviews</a></li>
 					<li *ngIf = "(af.auth | async)"><a (click) = "logout()" >Logout</a></li>
 				</ul>
 			</div>
