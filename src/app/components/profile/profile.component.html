@@ -1,7 +1,7 @@
 <ul class = "list-group" *ngFor = "let group of groups">
 	{{checkMember()}}
     <ng-container *ngIf = "group.members.includes(mem); then thenBlock; else ElseBlock"></ng-container>
-		 
+		<!-- when members are present in the group--> 
 		<ng-template #thenBlock>
 			<li class = "list-group-item" >{{group.name}}
 				
